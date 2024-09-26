@@ -1,0 +1,105 @@
+\documentclass[]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{array}
+\usepackage{tabularx}  % Paquete para tablas de ancho ajustable
+\usepackage{booktabs} % Paquete para mejorar el aspecto de las tablas
+\usepackage{caption}  % Paquete para personalizar los captions de las tablas
+\usepackage[total={18cm,24cm}, centering]{geometry} %colocar medias de al paquete 
+\usepackage{natbib} %para que funcione super indices
+\setcitestyle{super,open={},close={},citesep={,}} %colocar super indices// open={},close={} sirve para eliminar parentesis de las citas, citesep={,} coma entre citas
+\usepackage[colorlinks,citecolor=blue]{hyperref}%hyperref=paquete para lanzar cita a su lugar, colorlinks,citecolor=blue= darle color a la cita azul bluelock
+\usepackage{graphicx}% paquete para agregar imagenes enumerados
+\graphicspath{{images/}}% jala la todas las imagenes de la carpeta
+\usepackage{titlesec}
+\titleformat*{\section}{\bf\centering\MakeUppercase}
+% este comentario es el comienzo a brindar
+
+%opening
+\title{
+	\textbf{ Desarrollo de una aplicación móvil para reserva de servicio técnico de celulares utilizando WebSocket (en tiempo real) }
+	  }
+\author{ Frank Deibi Solórzano Quispe  }
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+	En la última década, las aplicaciones móviles han sido clave en el e-commerce, mejorando la experiencia del usuario y facilitando procesos como compras y comunicaciones. Durante la pandemia del COVID-19, el aumento del dólar y la escasez de stock incrementaron los precios de los teléfonos móviles, lo que elevó la demanda de servicios de reparación. Las reparaciones más frecuentes, como las de pantalla y batería, son esenciales debido a la urgencia de los usuarios ante la imposibilidad de usar sus dispositivos. A su vez, la fabricación de smartphones genera un impacto ambiental significativo, agravado por la obsolescencia programada y el consumo energético.La reparación de teléfonos móviles no solo reduce este impacto ambiental, sino que también promueve la economía circular al prolongar la vida útil de los dispositivos y evitar que terminen en vertederos contaminantes. En este contexto, una aplicación móvil para la reserva de servicios técnicos de celulares ofrece importantes beneficios. Los usuarios pueden hacer reservas de forma rápida y conveniente, evitando esperas y desplazamientos innecesarios. Para los proveedores, un sistema automatizado de reservas optimiza la gestión de citas, mejora la eficiencia operativa, reduce errores y facilita una mejor asignación de recursos, lo que mejora la satisfacción del cliente y fomenta prácticas más sostenibles en el uso de la tecnología.
+\end{abstract}
+
+\textbf{keywords:}
+
+\section{Introducción}
+
+En las últimas décadas el aumento en los precios de los celulares ha llevado a que muchas personas opten por reparar sus dispositivos en lugar de invertir en uno nuevo, siendo las reparaciones más comunes las de pantallas y baterías, que suelen dejar inutilizable el dispositivo en caso de daño\cite{Weter6deNoviembrede2020}. Este fenómeno ha generado un crecimiento en la demanda de servicios de reparación y, en consecuencia, un aumento en la cantidad de establecimientos especializados en este campo. Este crecimiento no solo se debe a razones económicas, sino también a preocupaciones ambientales, ya que la reparación de dispositivos móviles reduce el impacto negativo asociado con su producción y consumo. En este contexto, la reparación y reutilización de celulares promueve la economía circular, disminuyendo así el impacto ambiental al prolongar su vida útil. A partir de estas consideraciones, surge la necesidad de desarrollar soluciones tecnológicas que faciliten el acceso a servicios de reparación de manera más eficiente y conveniente. Las aplicaciones móviles han llevado a los usuarios a dedicar más tiempo a sus teléfonos al simplificar actividades cotidianas como compras, comunicación y entretenimiento \cite{bermudez2021importancia}. La creación de una aplicación móvil para la reserva de servicios técnicos de celulares en el establecimiento "Comercial Frank" en Cusco, Perú, es una respuesta innovadora a esta necesidad. Esta aplicación permitiría a los usuarios gestionar sus citas de reparación de manera rápida y cómoda, evitando largas esperas y desplazamientos innecesarios. Por otro lado, el uso de tecnologías de comunicación en tiempo real, como WebSockets, permitiría optimizar la gestión de citas, mejorando la eficiencia operativa del proveedor de servicios y reduciendo significativamente los tiempos de espera, lo que aumentaría la satisfacción del cliente. Este enfoque no solo aborda una demanda creciente del mercado, sino que también fomenta un modelo de negocio más sostenible y eficaz en la era digital\cite{Infobae2024}.
+El artículo está estructurado como sigue: primero, presentamos una revisión de la literatura relevante; luego, describimos nuestra metodología de estudio y, finalmente, discutimos nuestros hallazgos en el contexto de la investigación existente
+
+\section{Materiales y metodos}
+\subsection{Telefonos inteligentes}
+Los teléfonos inteligentes (o “smartphones”) son “pequeños ordenadores”, donde realizar y recibir llamadas de teléfono es sólo una aplicación más entre muchas otras. El uso de los teléfonos inteligentes está vinculado a las pantallas táctiles, y al uso de teclados y controles virtuales en la pantalla. En los “smartphones”, el usuario o usuaria puede añadir distintas funcionalidades en forma de aplicaciones o programas. Estas aplicaciones, por su pequeño tamaño, suelen denominarse “apps” y pueden pertenecer a la misma empresa fabricante del dispositivo o a terceras empresas. Los teléfonos inteligentes tienen preinstalado su propio sistema operativo, acompañado de un conjunto básico de aplicaciones de uso común. El sistema operativo determina el aspecto de la pantalla, el entorno de trabajo y el manejo del aparato. El propietario o propietaria podrá configurar el dispositivo a su gusto y añadir nuevos programas, gratuitos o de pago. Los sistemas operativos más habituales en “smartphones”, además de iOS de Apple, son Android (de código abierto pero asociado estrechamente con Google). Los “smartphones” hacen un amplio uso de Internet, a través de conexiones WiFi, la misma telefonía móvil 3G, 4G, 4G+ 0 4.5G y 5G también hace uso de la tecnología Bluetooth, y muchas otras funciones instaladas en los aparatos.
+
+\begin{table}[ht]
+	
+	\centering % Centrar la tabla en la página
+	\renewcommand{\arraystretch}{1.5} % Aumenta el espacio entre las filas para mejorar la legibilidad
+	\begin{tabular}{|c|c|c|c|c|c|c|c|} % Entorno tabular con 8 columnas centradas
+		\hline % Línea horizontal superior
+		\textbf{Bocina} & \textbf{\%} & \textbf{Cámara} & \textbf{\%} & \textbf{Micrófono} & \textbf{\%} & \textbf{Antena} & \textbf{\%} \\ % Encabezados de las columnas en negrita
+		\hline % Línea horizontal debajo de los encabezados
+		Aluminio & 10\% & Cobre  & 25\% & Aluminio  & 70\% & Latón & 20\% \\ % Fila 1 de datos
+		\hline % Línea horizontal
+		Hierro & 40\% & Policarbonato & 25\% & Cobre & 10\% & Polibutadieno & 80\% \\ % Fila 2 de datos
+		\hline % Línea horizontal
+		Cobre & 9.9\% & Cristal & 50\% & Acero & 20\% & - & -  \\ % Fila 3 de datos
+		\hline % Línea horizontal
+		Acero Prensado  & 25\% & - & - & - & - & - & -  \\ % Fila 4 de datos
+		\hline % Línea horizontal
+		Espuma poliuretano & 0.1\% & - & - & - & - & - & - \\ % Fila 5 de datos
+		\hline % Línea horizontal
+		Acrilonitrilo butadieno estireno & 15\% & - & - & - & - & - & - \\ % Fila 6 de datos
+		\hline % Línea horizontal final
+	 
+	\end{tabular} % Fin del entorno tabular
+	\caption{Composición de componentes de un teléfono móvil\cite{cruz2017evaluacion}} % Título de la tabla	
+\end{table} % Fin del entorno table
+
+\subsection{Economía circular}
+
+La economía circular promueve la desvinculación del crecimiento económico y el consumo de recursos (materiales, agua o energía), mediante la extensión de la vida de los productos y materiales, basándose en un circuito cerrado "recursos-consumo-recursos regenerados”. Se define como un sistema económico en el que se reemplaza el concepto de fin de la vida útil de un producto o recurso, a través de mecanismos que, por un lado, reducen la generación de desechos, y por otro lado facilitan la recuperación, reutilización, reciclaje y reacondicionamiento de recursos para incorporarlos en nuevos ciclos y procesos de producción, distribución y consumo. Este modelo económico opera a nivel micro (productos, empresas, consumidores), a nivel meso (parques eco-industriales) y a nivel macro (ciudad, región, nación y más allá), con el objetivo de enfocarse en un desarrollo sustentable que crea simultáneamente valor ambiental, prosperidad económica y equidad social, en beneficio de las generaciones actuales y futuras"\cite{cruz2019economia}.
+La economía circular se define como regenerativa y restauradora, distingue entre ciclos técnicos y biológicos: el ciclo técnico implica la gestión de las existencias de materiales finitos, para los que el uso circular sustituye al consumo. Los materiales técnicos se recuperan y en su mayoría se restauran en el ciclo técnico. Por otro lado, el ciclo biológico abarca los flujos de materiales renovables, por lo que el consumo sólo se produce en el ciclo biológico en donde los nutrientes se regeneran\cite{INECC2021EC}.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[height=6cm]{Modelo de economía Circular}%jala la imagen de la carpeta images, [hiigh determina el tamaño de la imagen]
+	\caption{Estrategias para transitar una economía circular\cite{PROFECO2019EC}}% informacion de la imagen
+	\label{b:modelo circular}% hace referencia de la imagen cuando estamos en otra parte del documento
+\end{figure}
+
+\subsection{WebSockets}
+
+WebSocket es una tecnología que proporciona un canal de comunicaciones bidireccional
+en tiempo real a través de una conexión de Protocolo de Control de Transmisión (TCP). La tecnología WebSocket cubre la API de JavaScript (Interfaz de Programación de Aplicaciones) que es especificada por el Consorcio World Wide Web (W3C), y un protocolo que es especificado por el Grupo de Trabajo de Ingeniería de Internet (IETF). El estado de la última especificación es un "estándar propuesto". La API de WebSocket a menudo se denota como API de WebSocket HTML5, aunque en realidad está separada de la especificación HTML5 y actualmente se está desarrollando y especificando de forma independiente. La Recomendación Candidata de la API de WebSocket se publicó en septiembre de 2012. El protocolo WebSocket es un protocolo de red que se ejecuta en TCP. Está diseñado para implementarse en navegadores web y servidores web, pero también puede utilizarse para otros fines. El protocolo WebSocket es independiente del Protocolo de transferencia de hipertexto (HTTP), aunque los protocolos tienen similitudes, como el uso del puerto TCP 80 y el proceso de enlace cuando inicializa una conexión. Debido a que se espera que la tecnología WebSocket influya en las comunicaciones en la
+web durante los próximos años, los WebSockets pueden a su vez influir en la seguridad de la web\cite{erkkila2012websocket}. % referencia a websocket
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[height=4cm]{Conexión bidireccional permanente}%jala la imagen de la carpeta images, [hiigh determina el tamaño de la imagen]
+	\caption{WebSockets: Conexión bidireccional permanente}% informacion de la imagen
+	\label{w:websockets}% hace referencia de la imagen cuando estamos en otra parte del documento
+\end{figure}
+\section{Resultados}
+
+\section{Discusión}
+
+
+\section{Conclusiones}
+ 
+\section{Agradecimientos}
+\section{Referencias}
+\bibliography{references}%agrega las referencias
+\bibliographystyle{ieeetr}%coloca un patron de referencias [1]
+
+
+
+\end{document}
