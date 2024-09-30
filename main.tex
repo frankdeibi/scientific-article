@@ -1,5 +1,7 @@
 \documentclass[]{article}
-\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel} % Cambiar el idioma a español
+\usepackage[utf8]{inputenc} % Permitir el uso de caracteres especiales como tildes y ñ
+\usepackage[T1]{fontenc} % Permitir el uso de caracteres especiales como tildes y ñ
 \usepackage{array}
 \usepackage{tabularx}  % Paquete para tablas de ancho ajustable
 \usepackage{booktabs} % Paquete para mejorar el aspecto de las tablas
@@ -70,7 +72,7 @@ Los teléfonos inteligentes (o “smartphones”) son “pequeños ordenadores�
 La economía circular promueve la desvinculación del crecimiento económico y el consumo de recursos (materiales, agua o energía), mediante la extensión de la vida de los productos y materiales, basándose en un circuito cerrado "recursos-consumo-recursos regenerados”. Se define como un sistema económico en el que se reemplaza el concepto de fin de la vida útil de un producto o recurso, a través de mecanismos que, por un lado, reducen la generación de desechos, y por otro lado facilitan la recuperación, reutilización, reciclaje y reacondicionamiento de recursos para incorporarlos en nuevos ciclos y procesos de producción, distribución y consumo. Este modelo económico opera a nivel micro (productos, empresas, consumidores), a nivel meso (parques eco-industriales) y a nivel macro (ciudad, región, nación y más allá), con el objetivo de enfocarse en un desarrollo sustentable que crea simultáneamente valor ambiental, prosperidad económica y equidad social, en beneficio de las generaciones actuales y futuras"\cite{cruz2019economia}.
 La economía circular se define como regenerativa y restauradora, distingue entre ciclos técnicos y biológicos: el ciclo técnico implica la gestión de las existencias de materiales finitos, para los que el uso circular sustituye al consumo. Los materiales técnicos se recuperan y en su mayoría se restauran en el ciclo técnico. Por otro lado, el ciclo biológico abarca los flujos de materiales renovables, por lo que el consumo sólo se produce en el ciclo biológico en donde los nutrientes se regeneran\cite{INECC2021EC}.
 
-\begin{figure}[ht]
+\begin{figure}[h]
 	\centering
 	\includegraphics[height=6cm]{Modelo de economía Circular}%jala la imagen de la carpeta images, [hiigh determina el tamaño de la imagen]
 	\caption{Estrategias para transitar una economía circular\cite{PROFECO2019EC}}% informacion de la imagen
@@ -89,6 +91,27 @@ web durante los próximos años, los WebSockets pueden a su vez influir en la se
 	\caption{WebSockets: Conexión bidireccional permanente}% informacion de la imagen
 	\label{w:websockets}% hace referencia de la imagen cuando estamos en otra parte del documento
 \end{figure}
+
+\subsection{Flutter}
+
+Flutter es un marco multiplataforma que apunta al desarrollo de aplicaciones móviles de alto rendimiento.
+Flutter fue lanzado públicamente en 2016 por Google. Además de ejecutarse en Android e iOS, las aplicaciones Flutter
+también se ejecutan en Fuschia. Flutter es elegido como el marco de trabajo a nivel de aplicación de Google para su sistema operativo de
+última generación. Flutter es excepcional porque depende de los widgets OEM del dispositivo en lugar de consumir vistas web. Flutter utiliza un motor de renderizado de alto rendimiento para renderizar cada componente de vista
+usando el suyo propio. Esto brinda la oportunidad de crear aplicaciones que sean de tan alto rendimiento como las aplicaciones
+nativas. En vista de la arquitectura, el código C o C++ del motor implica la compilación con NDK de Android y LLVM para iOS respectivamente, y durante el proceso de compilación, el código Dart se
+compila en código nativo. La función de recarga en caliente en Flutter se llama recarga en caliente con estado y es un factor
+importante para impulsar el ciclo de desarrollo. Flutter lo admite durante el desarrollo. La recarga activa con estado se
+implementa enviando el código fuente actualizado a la máquina virtual Dart en ejecución (Dart VM)
+sin cambiar la estructura interna de la aplicación, por lo tanto, las transiciones y acciones de la
+aplicación se conservarán bien después de la recarga activa\cite{tashildar2020application}.
+
+\subsection{Dart}
+
+Dart es un lenguaje de programación de código abierto creado por Google en 2011 con la intención de proporcionar una alternativa más moderna a JavaScript. Se trata de un lenguaje especialmente optimizado para la creación de interfaces de usuario.
+Es el lenguaje que se utiliza para la creación de aplicaciones con Flutter. Existen varias razones por las que este lenguaje es el ideal para esta herramienta. La razón principal es su versatilidad. Dart permite la compilación AOT (A head Of Time), con lo cual se obtiene código nativo con un mucho mejor rendimiento que si se usase un lenguaje interpretado como JavaScript. El código Dart también puede ser compilado sobre la marcha (JIT, Just In Time), con lo que se da soporte a la funcionalidad de recarga rápida de Flutter para la actualización del código durante la ejecución.
+De esta forma, el código Dart puede usar una compilación JIT durante el desarrollo para acelerar los tiempos de implementación. Una vez terminada la implementación, la compilación AOT produce el código nativo optimizado y rápido. Las herramientas de Dart permiten tener ciclos de desarrollo rápidos y tiempos de ejecución y lanzamiento breves\citenum{vazquez2019desarrollo}.
+
 \section{Resultados}
 
 \section{Discusión}
